@@ -8,7 +8,7 @@ function Home() {
 
     const handleClick = (ev) => {
         ev.preventDefault();
-        router.push('/about');
+        router.push('/pokemon');
     }
   return (
     <>
