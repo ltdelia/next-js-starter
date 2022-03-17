@@ -1,6 +1,7 @@
 import Head from "next/head";
+import styles from './Pokemon.module.css';
 
-function About({ pokemon }) {
+function Pokemon({ pokemon }) {
   return (
     <>
       <Head>
@@ -10,7 +11,7 @@ function About({ pokemon }) {
           content="initial-scale=1.0, width=device-width"
         ></meta>
       </Head>
-      <div>
+      <div className={styles.container}>
         Welcome to the about page, {pokemon?.name}!
         <img src={pokemon?.sprites.front_default} />
       </div>
@@ -28,7 +29,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: false
+    fallback: true
   }
 }
 
@@ -43,4 +44,4 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default About;
+export default Pokemon;
