@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-function Home() {
+function Blog() {
   return (
     <>
         <Head>
@@ -14,4 +14,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Blog;
