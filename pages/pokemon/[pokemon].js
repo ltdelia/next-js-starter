@@ -20,7 +20,7 @@ function Pokemon({ pokemon }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
+  const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
   const pokemon = await res.json();
 
   let paths = pokemon.results.map(p => {
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: true
+    fallback: false
   }
 }
 
