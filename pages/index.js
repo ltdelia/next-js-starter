@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
@@ -26,8 +27,7 @@ function Home() {
 
   const handleClick = (ev) => {
     ev.preventDefault();
-    router.push('/blog');
-    // router.push(paths[Math.floor(Math.random() * paths.length)]);
+    router.push(paths[Math.floor(Math.random() * paths.length)]);
   };
 
   return (
@@ -36,7 +36,10 @@ function Home() {
         <title>My Next.js site</title>
       </Head>
       <div>Welcome Explorer!</div>
-      <button onClick={handleClick}>Visit the Blog Page!</button>
+      <Link href="/blog">
+        <a>Visit the Blog Page!</a>
+      </Link>
+      <button onClick={handleClick}>Get a random Pokemon!</button>
     </>
   );
 }
