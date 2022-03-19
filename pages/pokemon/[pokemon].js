@@ -19,6 +19,21 @@ function Pokemon({ pokemon }) {
   );
 }
 
+export default Pokemon;
+
+export async function getStaticProps({ params }) {
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.pokemon}`);
+  const pokemon = await res.json();
+  console.log(params.pokemon)
+
+  return {
+    props: {
+      pokemon,
+    },
+  };
+}
+
+
 export async function getStaticPaths() {
   const res = await fetch("https://pokeapi.co/api/v2/pokemon?limit=10");
   const pokemon = await res.json();
@@ -32,17 +47,3 @@ export async function getStaticPaths() {
     fallback: false
   }
 }
-
-export async function getStaticProps({ params }) {
-  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${params.pokemon}`);
-  const pokemon = await res.json();
-  console.log(params.pokemon);
-
-  return {
-    props: {
-      pokemon,
-    },
-  };
-}
-
-export default Pokemon;
