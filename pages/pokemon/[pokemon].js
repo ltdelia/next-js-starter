@@ -1,7 +1,14 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 import styles from './Pokemon.module.css';
 
 function Pokemon({ pokemon }) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Loading...</div>
+}
+
   return (
     <>
       <Head>

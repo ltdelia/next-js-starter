@@ -30,6 +30,10 @@ function Home() {
     router.push(paths[Math.floor(Math.random() * paths.length)]);
   };
 
+  if (router.isFallback) {
+    return <div>Loading...</div>
+}
+
   return (
     <>
       <Head>
