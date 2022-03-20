@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import styles from './Pokemon.module.css';
 
@@ -20,7 +21,7 @@ function Pokemon({ pokemon }) {
       </Head>
       <div className={styles.container}>
         Welcome to the about page, {pokemon?.name}!
-        <img src={pokemon?.sprites.front_default} />
+        <Image className={styles.image} src={pokemon?.sprites.front_default} alt={pokemon?.name} />
       </div>
     </>
   );
